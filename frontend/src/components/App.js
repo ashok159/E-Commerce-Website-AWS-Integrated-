@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import SearchBar from './search';
+import Test from './Test';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       </header>
       <main>
         list products
-      </main>
+      </main>  
+      <TestAPI></TestAPI>    
     </div>   
   );
 }
