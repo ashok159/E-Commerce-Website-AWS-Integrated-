@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.Header{
+  background-color: black;
+  padding: 20px;
+  display: flex;
+}
+
+.Header a {
+  color: #fff;
+  font-weight : bold;
+  text-decoration: none;
+}
