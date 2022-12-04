@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import SearchBar from './search';
-import Test from './Test';
+import TestAPI from './TestAPI';
 
 function App() {
   return (
