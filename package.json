@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "axios": "^1.2.0"
+    "amazon-cognito-identity-js": "^6.2.0",
+    "aws-sdk": "^2.1363.0",
+    "axios": "^1.2.0",
+    "webpack": "^5.80.0"
   }
 }
