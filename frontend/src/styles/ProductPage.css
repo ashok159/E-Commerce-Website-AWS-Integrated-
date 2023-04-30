@@ -32,6 +32,10 @@
 .product-page-price, .product-page-rating, .product-page-title,.product-page-discount{
   margin: 5px;
 }
+
+.product-page-title{
+  font-weight: 500;
+}
 .product-page-price{
   font-weight: bold;
   color: rgb(220, 57, 59);

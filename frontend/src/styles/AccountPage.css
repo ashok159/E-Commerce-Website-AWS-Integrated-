@@ -1,5 +1,26 @@
 .signInBox{
-  padding: 20vh 20vw;
+  padding: 10vh 10vw;
+}
+
+.signInContainerCognito{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signOutButtonCognito{
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: black;
+  padding: 10px 80px;
+  border-radius: 50px;
+  /* width: 40%; */
+}
+.signOutButtonCognito:hover{
+  background-color: rgb(220, 57, 59);
+  transition: all 1s ease;
 }
 
 .amplify-button[data-variation='primary'] {
@@ -24,6 +45,16 @@
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.welcomeMessageCognito{
+  font-size: 25px;
+}
+.welcomeMessageSubHeading{
+  font-size: 15px;
+}
+.highlight{
+  color:rgb(220, 57, 59);
 }
 
 .Login form {

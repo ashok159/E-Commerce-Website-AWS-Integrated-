@@ -17,9 +17,9 @@ import TermsPage from "../pages/TermsPage";
 import PrivacyPage from "../pages/PrivacyPage";
 
 function App() {
-  // localStorage.setItem('isLoggedIn', false);
-  // let isLoggedIn = localStorage.getItem('isLoggedIn');
-  // console.log(isLoggedIn);
+   //localStorage.setItem('isLoggedIn', false);
+   //let isLoggedIn = localStorage.getItem('isLoggedIn');
+   //console.log(isLoggedIn);
   return (
     <div>
       {/* <Categories></Categories> */}

@@ -70,7 +70,9 @@
 
 .cart-page{
   display: flex;
-  height: 100vh;
+  justify-content: space-around;
+  height: 100%;
+  padding-bottom: 5%;
 }
 
 .cart-free-ship{

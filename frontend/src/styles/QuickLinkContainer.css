@@ -28,7 +28,8 @@
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-    background-color: rgb(130,194,219);
+    background-color: #eee;
+    /* background-color: rgb(130,194,219); */
     width: 30vw;
     height: 500px;
     padding: 45px;

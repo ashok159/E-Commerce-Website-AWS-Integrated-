@@ -13,22 +13,6 @@ import * as AWS from 'aws-sdk';
 
 function AccountPageLoginIn() {
   const [user, setUser] = useState(null);
-  useEffect(()=>{
-    async function checkUser(){
-      try{
-        const user = await Auth.currentSession();
-        setUser(user);
-        if(user.idToken.payload.email){
-          localStorage.setItem('isLoggedIn', true);
-          let isLoggedIn = localStorage.getItem('isLoggedIn');
-          console.log("USEEFFECT: ", isLoggedIn);
-        }
-      }catch(error){
-        console.log(error)
-      }
-    }
-    checkUser();
-  },[])
 
   Amplify.configure({
     Auth: {
@@ -113,11 +97,15 @@ function AccountPageLoginIn() {
       }
     });
   }
+  
   // {console.log(Auth.currentAuthenticatedUser())}
-  function SetLogin()
+  function SetLogin(userString)
   {
     localStorage.setItem('isLoggedIn', true);
     let isLoggedIn = localStorage.getItem('isLoggedIn');
+    localStorage.setItem('currentUser', userString);
+    let currentUser = localStorage.getItem('currentUser');
+    console.log(currentUser);
     console.log(isLoggedIn);
   }
 
@@ -126,8 +114,11 @@ function AccountPageLoginIn() {
     // return new Promise((resolve, reject) =>{
       localStorage.setItem('isLoggedIn', false);
       let isLoggedIn = localStorage.getItem('isLoggedIn');
+      localStorage.setItem('currentUser', null);
+      let currentUser = localStorage.getItem('currentUser');
+      console.log(currentUser);
       console.log(isLoggedIn);
-      // resolve();
+      // resolve( );
     // })
   }
 
@@ -135,10 +126,12 @@ function AccountPageLoginIn() {
     <div className="signInBox">
       <Authenticator formFields={formFields} signUpAttributes={signUpAttributes}>
               {({ signOut, user }) => (
-                  <div>
-                      <p>Welcome {user.username}</p>
-                      {/* {SetLogin()} */}
-                      <button 
+                  <div className="signInContainerCognito">
+                      {/* <p>Welcome {user.username}</p> */}
+                      <p className="welcomeMessageCognito"><span className="highlight">Welcome</span> {(user.attributes.name)}</p>
+                      {SetLogin(user.username)}
+                      <p className="welcomeMessageSubHeading">{(user.attributes.email)}</p>
+                      <button className="signOutButtonCognito"
                         onClick={async () => {
                           await Auth.signOut();
                           Leave();
@@ -155,121 +148,3 @@ function AccountPageLoginIn() {
 }
 
 export default AccountPageLoginIn;
-
-
-// export default function AccountPageLoginIn() {
-
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const {authenticate} = useContext(AccountContext);
-
-//   const onSubmit = (event) =>{
-//     event.preventDefault();
-//     authenticate(email, password)
-//       .then(data =>{
-//         console.log("Logged in!", data);
-//         window.location.reload(); 
-//       })
-//       .catch(err => {
-//         console.log("Failed to Login", err);
-//       })
-//   };
-
-
-//   return (
-//     <div className="Login">
-//       <main>
-//         <h1>Log In</h1>
-//         <p>Enter your account details below</p>
-//         <form onSubmit={onSubmit}>
-//         <div className="login-email">
-//             <label for="email">Email</label>
-//             <input 
-//               type="email"
-//               value={email}
-//               onChange={(event)=> setEmail(event.target.value)} 
-//             />
-//           </div>
-//           <br />
-//           <div className="login-password">
-//             <label for = "password">Password</label>
-//             <br />
-//             <input 
-//               type="password" 
-//               value={password}
-//               onChange={(event)=> setPassword(event.target.value)}  
-//             />
-//           </div>
-          
-//           <br />
-//           <button className="login-button">Login</button>
-//           <br />
-//           <Link to="/account/signup"><button className="register-btn">Create your new account</button></Link>
-//           <br />
-//         </form>
-//       </main>
-//     </div>
-//   );
-// }
-
-// export default function AccountPageLoginIn() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-      // const onSubmit = (event) =>{
-      //   event.preventDefault();
-
-      //   const user = new CognitoUser({
-      //     Username: email,
-      //     Pool: UserPool
-      //   })
-        
-      //   const authDetails = new AuthenticationDetails({
-      //     Username: email,
-      //     Password: password,
-      //   })
-
-      //   user.authenticateUser(authDetails, {
-      //     onSuccess:(data)=>{
-      //       console.log("onsuccess : ", data);
-      //     },
-      //     onFailure: (err)=>{
-      //       console.log("onFailure :", err)
-      //     },
-      //     newPasswordRequired: (data)=>{
-      //       console.log("newPasswordRequired: ", data);
-      //     },
-      //   })
-      // };
-
-//   return (
-//     <div className="Signup">
-//       <main>
-//         <h1>Sign Up</h1>
-//         <p>Enter your account details below</p>
-
-//         <form onSubmit={onSubmit}>
-//           <div className="signup-email">
-//             <label for="email">Email</label>
-//             <input 
-//               type="email"
-//               value={email}
-//               onChange={(event)=> setEmail(event.target.value)} 
-//             />
-//           </div>
-//           <br/>
-//           <div className="signup-password">
-//             <label for = "password">Password</label>
-//             <input 
-//               type="password"
-//               value={password}
-//               onChange={(event)=> setPassword(event.target.value)}  
-//             />
-//           </div>
-//           <button type="submit-buttom"> LOGIN </button>
-//         </form>
-//       </main>
-//     </div>
-//   );
-// }
