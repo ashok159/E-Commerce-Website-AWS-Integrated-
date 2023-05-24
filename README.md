@@ -37,3 +37,19 @@ AWS IAM was used for role/permission management for the AWS services used.
  
 ### Architecture Map:
 ![Screen Shot 2023-05-15 at 5 26 51 PM](https://github.com/nozama-cloud/E-Commerce-Nozama/assets/71999538/b32d5b96-76d0-4bcd-b7b3-35ca9f5770c8)
+
+### Running the Application Locally:
+Starting the Backend: 
+```shell
+cd backend
+
+node app.js
+```
+
+Starting the Frontend: 
+```shell
+cd frontend
+
+npm run start
+```
+
