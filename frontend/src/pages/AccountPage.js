@@ -13,7 +13,6 @@ import * as AWS from 'aws-sdk';
 
 function AccountPageLoginIn() {
   const [user, setUser] = useState(null);
-
   Amplify.configure({
     Auth: {
         region: awsExports.REGION,
@@ -49,10 +48,10 @@ function AccountPageLoginIn() {
 
   const checkUserLegacy = (username) => {
     const dynamodb = new AWS.DynamoDB({
-      region: '...',
-      endpoint: '...',
-      accessKeyId: "...",
-      secretAccessKey: "..."
+      region: '###',
+      endpoint: '###',
+      accessKeyId: "###",
+      secretAccessKey: "###"
     });
     const getParams = {
       TableName: 'nozama_table1',
@@ -72,10 +71,10 @@ function AccountPageLoginIn() {
         else{
           console.log("NOOOO")
           AWS.config.update({
-            region: '...',
-            endpoint: '...',
-            accessKeyId: "...",
-            secretAccessKey: "..."
+            region: '###',
+            endpoint: '###',
+            accessKeyId: "###",
+            secretAccessKey: "###"
           });
           const docClient = new AWS.DynamoDB.DocumentClient();
           const putParams = {
@@ -97,8 +96,7 @@ function AccountPageLoginIn() {
       }
     });
   }
-  
-  // {console.log(Auth.currentAuthenticatedUser())}
+
   function SetLogin(userString)
   {
     localStorage.setItem('isLoggedIn', true);

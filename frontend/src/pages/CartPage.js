@@ -15,6 +15,10 @@ if (localStorage.getItem("currentUser") === null)
 let currentUser = localStorage.getItem("currentUser");
 console.log(currentUser);
 
+// Dynamodb and Local Storage steps:
+// If a user is logged in, append item to and from dynamo cart, else from local storage cart
+// When user logs in, append local storage cart to existing dynamo cart, clear local storage cart
+
 if (localStorage.getItem("cart") === null) {
   localStorage.setItem("cart", "[]");
 }
@@ -25,7 +29,7 @@ function windowRefresh() {
  window.location.reload();
 }
 
-function removeFromCart(productID) {
+async function removeFromCart(productID) {
   if (localStorage.getItem('isLoggedIn') === "true")
   {
     let deletedCart = [];
@@ -41,16 +45,17 @@ function removeFromCart(productID) {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(cart.length);
+    windowRefresh();
   }
 }
 
 async function removeDB (deletedCart, productID)
 {
   const dynamodb = new AWS.DynamoDB({
-    region: '...',
-    endpoint: '...',
-    accessKeyId: "...",
-    secretAccessKey: "..."
+    region: '###',
+    endpoint: '###',
+    accessKeyId: "###",
+    secretAccessKey: "###"
   });
   const getParams = {
     TableName: "nozama_table1",
@@ -66,10 +71,10 @@ async function removeDB (deletedCart, productID)
       }
     }
     AWS.config.update({
-      region: '...',
-      endpoint: '...',
-      accessKeyId: "...",
-      secretAccessKey: "..."
+      region: '###',
+      endpoint: '###',
+      accessKeyId: "###",
+      secretAccessKey: "###"
     });
     const docClient = new AWS.DynamoDB.DocumentClient();
     const putParams = {
@@ -85,6 +90,7 @@ async function removeDB (deletedCart, productID)
       console.error(err);
     } else {
       console.log(data);
+      windowRefresh();
     }
   });
   } catch (err) {
@@ -100,10 +106,10 @@ function goToCheckout() {
 async function pullCartFromDB() {
   let userCart = [];
   const dynamodb = new AWS.DynamoDB({
-    region: '...',
-    endpoint: '...',
-    accessKeyId: ".",
-    secretAccessKey: "..."
+    region: '###',
+    endpoint: '###',
+    accessKeyId: "###",
+    secretAccessKey: "###"
   });
   const getParams = {
     TableName: "nozama_table1",
@@ -174,8 +180,8 @@ return (
                className="cart-item-btn"
                onClick={() => {
                  removeFromCart(item.id);
-                 windowRefresh();
-                 alert("Item removed from cart!");
+                //  windowRefresh();
+                //  alert("Item removed from cart!");
                }}
              >
                Remove

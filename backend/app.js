@@ -13,6 +13,7 @@ app.use(express.json());
 app.set("view engine", "ejs"); // can view javascript files
 app.set("views", frontendPath);
 app.use(express.urlencoded({ extended: false }));
+// app.use(express.static(path.join(__dirname, '../app/build')))
 
 app.post("/account/auth", (req, res) => {
   const data = req.body;
@@ -49,7 +50,8 @@ app.post("/account/signup", async (req, res) => {
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  // res.sendFile(path.join(__dirname, '../app/build/index.html'))
+  console.log("Sending File Path")
 })
 app.get('/products', (req, res) => {
     request('https://dummyjson.com/products?limit=100', function(error, response, body){
@@ -101,5 +103,5 @@ app.get('/searchbar/:input', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server listening on port ${port}`)
 })

@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'http://localhost:9000/',
+            target: "http://e-commerce-nozama-server-1:9000",
             changeOrigin: true
         })
     )

@@ -37,10 +37,10 @@ function ProductPage() {
     {
       let userCart = [];
       const dynamodb = new AWS.DynamoDB({
-        region: '...',
-        endpoint: '...',
-        accessKeyId: "...",
-        secretAccessKey: "..."
+        region: '###',
+        endpoint: '###',
+        accessKeyId: "###",
+        secretAccessKey: "###"
       });
       const getParams = {
         TableName: 'nozama_table1',
@@ -59,10 +59,10 @@ function ProductPage() {
           userCart.push(Number(itemData.id));
           console.log(userCart);
           AWS.config.update({
-            region: '...',
-            endpoint: '...',
-            accessKeyId: "...",
-            secretAccessKey: "..."
+            region: '###',
+            endpoint: '###',
+            accessKeyId: "###",
+            secretAccessKey: "###"
           });
           const docClient = new AWS.DynamoDB.DocumentClient();
           const putParams = {

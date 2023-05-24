@@ -3,7 +3,7 @@ import ImageSlides from './ImageSlides'
 
 const SliderContainer = () => {
     const slides = [
-        {url: "http://localhost:3000/images/sale3.webp", title: "surface"},
+        // {url: "http://localhost:3000/images/sale3.webp", title: "surface"},
         {url: "http://localhost:3000/images/iphone9ad.jpg", title: "Iphone-Ad"},
         {url: "http://localhost:3000/images/shipping.webp", title: "shipping"},
         {url: "http://localhost:3000/images/slider_img_1_copy.jpg", title: "deals"},
