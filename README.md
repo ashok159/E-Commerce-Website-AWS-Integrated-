@@ -36,7 +36,7 @@ AWS IAM was used for role/permission management for the AWS services used.
 - [AWS Amplify](https://aws.amazon.com/amplify/) (Replaced by AWS EC2 for hosting)
  
 ### Architecture Map:
-![Screen Shot 2023-05-15 at 5 26 51 PM](https://github.com/nozama-cloud/E-Commerce-Nozama/assets/71999538/b32d5b96-76d0-4bcd-b7b3-35ca9f5770c8)
+![Screen Shot 2023-05-24 at 3 59 32 PM](https://github.com/ashdeep-singh02/Nozama_E-Commerce/assets/71999538/0dad65a2-b846-44ce-979d-d477f591270e)
 
 ### Running the Application Locally:
 Starting the Backend: 
