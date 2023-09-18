@@ -1,4 +1,4 @@
-# NOZAMA
+# NOZAMA 🛍️🛒
 
 [Demo Video](https://youtu.be/OmStX00KRp4)
 
