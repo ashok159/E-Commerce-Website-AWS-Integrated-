@@ -10,6 +10,8 @@ Nozama pulls product data via API calls to [Dummy JSON](https://dummyjson.com/do
 
 The app was dockerized inorder to host on an AWS EC2 Instance. 
 
+Implemented a microservices architecture during design/construction of application.
+
 ## Utilization of AWS
 AWS Cognito was used to help Nozama authenticate its new/returning users. 
 
