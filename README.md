@@ -1,5 +1,7 @@
 # NOZAMA 🛍️ 🛒
 
+Built in collaboration with: Ashdeep Singh, Ali Faiyaz, and Akeeme Black
+
 [Demo Video](https://youtu.be/OmStX00KRp4)
 
 Nozama is a E-Commerce platform designed to provide a user-friendly and enjoyable shopping experience for our customers. 
